@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name TiddlyWiki5:
+// @name TiddlyWiki5: Combine TW5 and search engine results
 // @description Combine TiddlyWiki and your preferred search engine to find your own answers more easily
 // @author bimlas
 // @supportURL https://github.com/bimlas/userscript-combine-tw5-and-search-engine-results
