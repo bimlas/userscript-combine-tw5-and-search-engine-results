@@ -2,8 +2,10 @@
 
 Have you ever been looking for something on Google and when you found the
 answer, you wanted to make a note of it, did you realize that you already had
-the answer in your TiddlyWiki? To avoid these situations, use this userscript
-with TiddlyWiki on Node (at least 5.1.20).
+the answer in your https://tiddlywiki.com/[TiddlyWiki]? To avoid these
+situations, use this userscript with TiddlyWiki on Node (at least 5.1.20 and
+https://github.com/Jermolene/TiddlyWiki5/issues/4054[this issue] has to be
+solved first).
 
 * Install
 https://addons.mozilla.org/en-US/firefox/addon/greasemonkey/[Greasemonkey] or
