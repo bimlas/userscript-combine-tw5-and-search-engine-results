@@ -63,7 +63,10 @@ wikis.forEach(wiki => {
     getWikiTitle(wiki)
   ])
   .then(([results, wikiTitle]) => {
-    const wikiSearchResultsList = results.reduce((text, tiddler) => text + `<li>${getTiddlerLink(wiki, tiddler.title)}</li>`, '');
-    addToPage(`<h3>${wikiTitle}</h3><small>${wiki}</small><p><ul>${wikiSearchResultsList}</ul></p>`);
+    const wikiSearchResultsList = results.reduce((text, tiddler) => {
+      return text + `<li>${getTiddlerLink(wiki, tiddler.title)}</li>`;
+    }, '');
+    const wikiLink = `<small><a href="${wiki}">${wiki}</a></small>`
+    addToPage(`<div><h3>${wikiTitle}</h3>${wikiLink}<p><ul>${wikiSearchResultsList}</ul></p></div>`);
   });
 });
