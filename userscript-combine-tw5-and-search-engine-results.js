@@ -12,9 +12,10 @@
 const wikis = [
   'http://localhost:8080',
 ];
+const subfilter = '[!is[system]]';
 
 function getSearchResultsOfWiki(wiki, query, callback) {
-  const urlEncodedQuery = encodeURIComponent(`[search[${query}]]`);
+  const urlEncodedQuery = encodeURIComponent(`${subfilter} +[search[${query}]]`);
   const url = `${wiki}/recipes/default/tiddlers.json:${urlEncodedQuery}`;
   const ret = GM_xmlhttpRequest({
     method: "GET",
