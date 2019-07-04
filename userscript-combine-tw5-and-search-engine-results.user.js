@@ -53,19 +53,17 @@ function addToPage(text) {
   searchEngineResults.insertBefore(node, searchEngineResults.childNodes[0]);
 }
 
-window.addEventListener('load', () => {
-  const query = document.querySelector('input[name=q]').value;
-  const urlEncodedQuery = encodeURIComponent(`${subfilter} +[search[${query}]]`);
-  let searchResults = '';
-  wikis.forEach(wiki => {
-    const url = `${wiki}/recipes/default/tiddlers.json:${urlEncodedQuery}`;
-    Promise.all([
-      fetchJSON(wiki, url),
-      getWikiTitle(wiki)
-    ])
-    .then(([results, wikiTitle]) => {
-      const wikiSearchResultsList = results.reduce((text, tiddler) => text + `<li>${getTiddlerLink(wiki, tiddler.title)}</li>`, '');
-      addToPage(`<h3>${wikiTitle}</h3><small>${wiki}</small><p><ul>${wikiSearchResultsList}</ul></p>`);
-    });
+const query = document.querySelector('input[name=q]').value;
+const urlEncodedQuery = encodeURIComponent(`${subfilter} +[search[${query}]]`);
+let searchResults = '';
+wikis.forEach(wiki => {
+  const url = `${wiki}/recipes/default/tiddlers.json:${urlEncodedQuery}`;
+  Promise.all([
+    fetchJSON(wiki, url),
+    getWikiTitle(wiki)
+  ])
+  .then(([results, wikiTitle]) => {
+    const wikiSearchResultsList = results.reduce((text, tiddler) => text + `<li>${getTiddlerLink(wiki, tiddler.title)}</li>`, '');
+    addToPage(`<h3>${wikiTitle}</h3><small>${wiki}</small><p><ul>${wikiSearchResultsList}</ul></p>`);
   });
-}, false);
+});
