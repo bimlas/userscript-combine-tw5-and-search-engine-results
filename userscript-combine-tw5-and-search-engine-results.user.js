@@ -14,18 +14,18 @@ const wikis = [
 ];
 const subfilter = '[!is[system]]';
 
-function getSearchResultsOfWiki(wiki, query, callback) {
-  const urlEncodedQuery = encodeURIComponent(`${subfilter} +[search[${query}]]`);
-  const url = `${wiki}/recipes/default/tiddlers.json:${urlEncodedQuery}`;
-  const ret = GM_xmlhttpRequest({
-    method: "GET",
-    headers: {
-      "Origin": wiki,
-    },
-    url: url,
-    onload: function(response) {
-      callback(JSON.parse(response.responseText));
-    }
+function fetchJSON(origin, url) {
+  return new Promise((resolve, reject) => {
+    GM_xmlhttpRequest({
+      method: "GET",
+      headers: {
+        "Origin": origin,
+      },
+      url: url,
+      onload: function(response) {
+        resolve(JSON.parse(response.responseText));
+      }
+    });
   });
 }
 
@@ -33,6 +33,17 @@ function getTiddlerLink(wiki, title) {
   const urlEncodedTitle = encodeURIComponent(title);
   const url = `${wiki}/${urlEncodedTitle}`;
   return `<a href="${url}">${title}</a>`;
+}
+
+function getWikiTitle(wiki) {
+  return new Promise((resolve, reject) => {
+    const urlEncodedQuery = encodeURIComponent('$:/SiteTitle');
+    const url = `${wiki}/recipes/default/tiddlers/${urlEncodedQuery}`;
+    fetchJSON(wiki, url)
+    .then(results => {
+      resolve(results.text);
+    });
+  });
 }
 
 function addToPage(text) {
@@ -44,11 +55,17 @@ function addToPage(text) {
 
 window.addEventListener('load', () => {
   const query = document.querySelector('input[name=q]').value;
+  const urlEncodedQuery = encodeURIComponent(`${subfilter} +[search[${query}]]`);
   let searchResults = '';
   wikis.forEach(wiki => {
-    getSearchResultsOfWiki(wiki, query, results => {
+    const url = `${wiki}/recipes/default/tiddlers.json:${urlEncodedQuery}`;
+    Promise.all([
+      fetchJSON(wiki, url),
+      getWikiTitle(wiki)
+    ])
+    .then(([results, wikiTitle]) => {
       const wikiSearchResultsList = results.reduce((text, tiddler) => text + `<li>${getTiddlerLink(wiki, tiddler.title)}</li>`, '');
-      addToPage(`<h3>${wiki}</h3><ul>${wikiSearchResultsList}</ul>`);
+      addToPage(`<h3>${wikiTitle}</h3><small>${wiki}</small><p><ul>${wikiSearchResultsList}</ul></p>`);
     });
   });
 }, false);
