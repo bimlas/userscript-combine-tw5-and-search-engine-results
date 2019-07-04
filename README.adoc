@@ -1,0 +1,18 @@
+= Userscript: Combine TiddlyWiki5 and search engine (Google) results
+
+Have you ever been looking for something on Google and when you found the
+answer, you wanted to make a note of it, did you realize that you already had
+the answer in your TiddlyWiki? To avoid these situations, use this userscript
+with TiddlyWiki on Node (at least 5.1.20).
+
+* Install
+https://addons.mozilla.org/en-US/firefox/addon/greasemonkey/[Greasemonkey] or
+a compatible userscript-manager extension
+(https://violentmonkey.github.io/[Violentmonkey],
+https://www.tampermonkey.net/[Tampermonkey]) to your browser
+* Add this script to it
+* Set up `wikis` in the script (don't forget to save the changes)
+* Start your Node based TiddlyWikis
+* Go to https://www.google.com/ and search for anything
+
+image::https://i.imgur.com/JUnRFsM.gif[screencast]
