@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name TiddlyWiki5: Combine TW5 and search engine results
 // @description Combine TiddlyWiki and your preferred search engine to find your own answers more easily
-// @version 0.1.0
+// @version 0.2.0
 // @author bimlas
 // @supportURL https://github.com/bimlas/userscript-combine-tw5-and-search-engine-results
 // @downloadURL https://gitlab.com/bimlas/userscript-combine-tw5-and-search-engine-results/raw/master/combine-tw5-and-search-engine-results.user.js
@@ -52,8 +52,9 @@ function fetchJSON(origin, url) {
 
 function getTiddlerLink(wiki, title) {
   const urlEncodedTitle = encodeURIComponent(title);
-  const url = `${wiki}/${urlEncodedTitle}`;
-  return `<a href="${url}">${title}</a>`;
+  const singleViewUrl = `${wiki}/${urlEncodedTitle}`;
+  const normalViewUrl = `${wiki}/#${urlEncodedTitle}`;
+  return `<a href="${singleViewUrl}">${title}</a> (<a href="${normalViewUrl}">#</a>)`;
 }
 
 function getWikiTitle(wiki) {
