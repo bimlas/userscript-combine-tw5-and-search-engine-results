@@ -5,7 +5,8 @@
 // @supportURL https://github.com/bimlas/userscript-combine-tw5-and-search-engine-results
 // @icon https://tiddlywiki.com/favicon.ico
 // @namespace Violentmonkey Scripts
-// @match https://www.google.com/search*
+// @match *://www.google.com/search*
+// @match *://www.startpage.com/do/search*
 // @grant GM_xmlhttpRequest
 // ==/UserScript==
 
@@ -13,6 +14,18 @@ const wikis = [
   'http://localhost:8080',
 ];
 const subfilter = '[!is[system]]';
+
+const searchEngineConfigs = {
+  'www.google.com': {
+    searchInputSelector: 'input[name=q]',
+    searchResultsSelector: '#center_col'
+  },
+  'www.startpage.com': {
+    searchInputSelector: '#q',
+    searchResultsSelector: 'div.mainline-results'
+  }
+}
+const searchEngine = searchEngineConfigs[document.domain];
 
 function fetchJSON(origin, url) {
   return new Promise((resolve, reject) => {
@@ -47,7 +60,7 @@ function getWikiTitle(wiki) {
 }
 
 function addToPage(text) {
-  const searchEngineResults = document.querySelector('#center_col');
+  const searchEngineResults = document.querySelector(searchEngine.searchResultsSelector);
   const node = document.createElement('div');
   node.style.display = 'inline-flex';
   node.style.margin = '1em';
@@ -63,7 +76,7 @@ function makeHtmlListFromTiddlers(wiki, listOfTiddlers) {
   return `<ul>${htmlList}</ul>`;
 }
 
-const query = document.querySelector('input[name=q]').value;
+const query = document.querySelector(searchEngine.searchInputSelector).value;
 const urlEncodedQuery = encodeURIComponent(`${subfilter} +[search[${query}]]`);
 let searchResults = '';
 wikis.forEach(wiki => {
