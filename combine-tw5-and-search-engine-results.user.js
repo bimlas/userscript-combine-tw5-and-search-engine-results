@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name TiddlyWiki5: Combine TW5 and search engine results
 // @description Combine TiddlyWiki and your preferred search engine to find your own answers more easily
-// @version 0.2.0
+// @version 0.3.0
 // @author bimlas
 // @supportURL https://github.com/bimlas/userscript-combine-tw5-and-search-engine-results
 // @downloadURL https://gitlab.com/bimlas/userscript-combine-tw5-and-search-engine-results/raw/master/combine-tw5-and-search-engine-results.user.js
@@ -18,19 +18,33 @@ const wikis = [
 ];
 const subfilter = '[!is[system]]';
 
+// NOTE: If you want to show results in the sidebar, change this option to
+// 'sidebar', but remember that the sidebar is not always visible (for example,
+// if the window is too narrow).
+const placementOfResults = 'main';
+
 const searchEngineConfigs = {
   'www.google.com': {
     searchInputSelector: 'input[name=q]',
-    searchResultsSelector: '#center_col'
+    searchResultsSelector: {
+      main: '#center_col',
+      sidebar: '#rhs'
+    }
   },
   // StartPage changes its URL and website structure, so the script does not work in all cases
   'www.startpage.com': {
     searchInputSelector: '#q',
-    searchResultsSelector: 'div.mainline-results'
+    searchResultsSelector: {
+      main: 'div.mainline-results',
+      sidebar: 'div.sidebar-results'
+    }
   },
   'duckduckgo.com': {
     searchInputSelector: 'input[name=q]',
-    searchResultsSelector: '#links.results'
+    searchResultsSelector: {
+      main: '#links.results',
+      sidebar: 'div.sidebar-modules'
+    }
   },
 }
 const searchEngine = searchEngineConfigs[document.domain];
@@ -69,7 +83,7 @@ function getWikiTitle(wiki) {
 }
 
 function addToPage(text) {
-  const searchEngineResults = document.querySelector(searchEngine.searchResultsSelector);
+  const searchEngineResults = document.querySelector(searchEngine.searchResultsSelector[placementOfResults]);
   const node = document.createElement('div');
   node.style.display = 'inline-flex';
   node.style.margin = '1em';
