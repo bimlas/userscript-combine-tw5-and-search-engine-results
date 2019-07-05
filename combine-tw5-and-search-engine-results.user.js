@@ -10,6 +10,7 @@
 // @match *://www.google.com/search*
 // @match *://www.startpage.com/do/search*
 // @match *://duckduckgo.com/*
+// @match *://www.ecosia.org/search*
 // @grant GM_xmlhttpRequest
 // ==/UserScript==
 
@@ -44,6 +45,13 @@ const searchEngineConfigs = {
     searchResultsSelector: {
       main: '#links.results',
       sidebar: 'div.sidebar-modules'
+    }
+  },
+  'www.ecosia.org': {
+    searchInputSelector: 'input[name=q]',
+    searchResultsSelector: {
+      main: 'div.mainline',
+      sidebar: 'div.sidebar'
     }
   },
 }
