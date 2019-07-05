@@ -18,7 +18,7 @@ a compatible userscript-manager extension
 (https://violentmonkey.github.io/[Violentmonkey],
 https://www.tampermonkey.net/[Tampermonkey]) to your browser
 * Add this script to it:
-https://gitlab.com/bimlas/userscript-combine-tw5-and-search-engine-results/raw/master/userscript-combine-tw5-and-search-engine-results.js
+https://gitlab.com/bimlas/userscript-combine-tw5-and-search-engine-results/raw/master/userscript-combine-tw5-and-search-engine-results.user.js
 * Set up `wikis` in the script (don't forget to save the changes)
 * Start your Node based TiddlyWikis
 * Go to https://www.google.com/ and search for anything
