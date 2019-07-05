@@ -24,4 +24,4 @@ solved first).
 * Open your favourite search engine (Google, StartPage, DuckDuckGo) and search
   for anything
 
-image::https://i.imgur.com/JUnRFsM.gif[screencast]
+image::https://i.imgur.com/D7tZA8C.gif[screencast]
