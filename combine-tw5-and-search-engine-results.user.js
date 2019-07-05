@@ -17,7 +17,7 @@
 const wikis = [
   'http://localhost:8080',
 ];
-const subfilter = '[!is[system]]';
+const wikiFilter = '[!is[system]] +[search[%s]]';
 
 // NOTE: If you want to show results in the sidebar, change this option to
 // 'sidebar', but remember that the sidebar is not always visible (for example,
@@ -108,7 +108,7 @@ function makeHtmlListFromTiddlers(wiki, listOfTiddlers) {
 }
 
 const query = document.querySelector(searchEngine.searchInputSelector).value;
-const urlEncodedQuery = encodeURIComponent(`${subfilter} +[search[${query}]]`);
+const urlEncodedQuery = encodeURIComponent(wikiFilter.replace('%s', query));
 let searchResults = '';
 wikis.forEach(wiki => {
   const url = `${wiki}/recipes/default/tiddlers.json:${urlEncodedQuery}`;
