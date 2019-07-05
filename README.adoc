@@ -3,16 +3,16 @@
 Have you ever been looking for something on Google and when you found the
 answer, you wanted to make a note of it, did you realize that you already had
 the answer in your https://tiddlywiki.com/[TiddlyWiki]? To avoid these
-situations, use this userscript with TiddlyWiki on Node (at least 5.1.20 and
-https://github.com/Jermolene/TiddlyWiki5/issues/4054[this issue] has to be
-solved first).
+situations by *integrating TiddlyWiki search results to Google* , use this
+userscript with TiddlyWiki on Node (*after
+https://github.com/Jermolene/TiddlyWiki5/issues/4054[this issue] solved*).
 
 * https://gitlab.com/bimlas/userscript-combine-tw5-and-search-engine-results (official repository)
 * https://github.com/bimlas/userscript-combine-tw5-and-search-engine-results (mirror, please star if you like it)
 
 == How to install?
 
-* Add
+* Install
   https://addons.mozilla.org/en-US/firefox/addon/greasemonkey/[Greasemonkey] or
   a compatible userscript-manager extension
   (https://violentmonkey.github.io/[Violentmonkey],
@@ -21,7 +21,7 @@ solved first).
   https://gitlab.com/bimlas/userscript-combine-tw5-and-search-engine-results/raw/master/userscript-combine-tw5-and-search-engine-results.user.js
 * Set up `wikis` in the script (don't forget to save the changes)
 * Start your Node based TiddlyWikis
-* Open your favourite search engine (Google, StartPage, DuckDuckGo) and search
-  for anything
+* Open your favourite search engine (Google, StartPage, DuckDuckGo) start
+  searching
 
 image::https://i.imgur.com/D7tZA8C.gif[screencast]
