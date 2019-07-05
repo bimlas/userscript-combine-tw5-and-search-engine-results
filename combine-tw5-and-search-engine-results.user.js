@@ -4,7 +4,7 @@
 // @version 0.1.0
 // @author bimlas
 // @supportURL https://github.com/bimlas/userscript-combine-tw5-and-search-engine-results
-// @downloadURL https://gitlab.com/bimlas/userscript-combine-tw5-and-search-engine-results/raw/master/userscript-combine-tw5-and-search-engine-results.user.js
+// @downloadURL https://gitlab.com/bimlas/userscript-combine-tw5-and-search-engine-results/raw/master/combine-tw5-and-search-engine-results.user.js
 // @icon https://tiddlywiki.com/favicon.ico
 // @namespace Violentmonkey Scripts
 // @match *://www.google.com/search*
