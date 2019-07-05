@@ -49,8 +49,18 @@ function getWikiTitle(wiki) {
 function addToPage(text) {
   const searchEngineResults = document.querySelector('#center_col');
   const node = document.createElement('div');
+  node.style.display = 'inline-flex';
+  node.style.margin = '1em';
+  node.style.backgroundColor = 'rgba(0, 0, 0, 0.05)';
   node.innerHTML = text;
   searchEngineResults.insertBefore(node, searchEngineResults.childNodes[0]);
+}
+
+function makeHtmlListFromTiddlers(wiki, listOfTiddlers) {
+  const htmlList = listOfTiddlers.reduce((text, tiddler) => {
+    return text + `<li>${getTiddlerLink(wiki, tiddler.title)}</li>`;
+  }, '');
+  return `<ul>${htmlList}</ul>`;
 }
 
 const query = document.querySelector('input[name=q]').value;
@@ -63,10 +73,9 @@ wikis.forEach(wiki => {
     getWikiTitle(wiki)
   ])
   .then(([results, wikiTitle]) => {
-    const wikiSearchResultsList = results.reduce((text, tiddler) => {
-      return text + `<li>${getTiddlerLink(wiki, tiddler.title)}</li>`;
-    }, '');
-    const wikiLink = `<small><a href="${wiki}">${wiki}</a></small>`
-    addToPage(`<div><h3>${wikiTitle}</h3>${wikiLink}<p><ul>${wikiSearchResultsList}</ul></p></div>`);
+    if(!results.length) return;
+    const wikiLink = `<small><a href="${wiki}">${wiki}</a></small>`;
+    const header = `<h3>${wikiTitle}</h3>${wikiLink}<p>`;
+    addToPage(`<div style="margin: 1em;">${header}<p>${makeHtmlListFromTiddlers(wiki, results)}</p><div>`);
   });
 });
