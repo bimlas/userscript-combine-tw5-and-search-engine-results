@@ -7,6 +7,9 @@ situations by *integrating TiddlyWiki search results to Google* , use this
 userscript with TiddlyWiki on Node (*after
 https://github.com/Jermolene/TiddlyWiki5/issues/4054[this issue] solved*).
 
+Because the script searches in multiple TiddlyWikis at once, it can also be
+used to *search in all your wikis*.
+
 * https://gitlab.com/bimlas/userscript-combine-tw5-and-search-engine-results (official repository)
 * https://github.com/bimlas/userscript-combine-tw5-and-search-engine-results (mirror, please star if you like it)
 
