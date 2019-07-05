@@ -24,7 +24,13 @@ used to *search in all your wikis*.
   https://gitlab.com/bimlas/userscript-combine-tw5-and-search-engine-results/raw/master/combine-tw5-and-search-engine-results.user.js
 * Set up `wikis` in the script (don't forget to save the changes)
 * Start your Node based TiddlyWikis
-* Open your favourite search engine (Google, StartPage, DuckDuckGo, Ecosia)
-  and start searching
+* Open your favourite search engine and start searching
 
 image::https://i.imgur.com/D7tZA8C.gif[screencast]
+
+== Supported search engines
+
+* https://www.google.com/[Google]
+* https://www.startpage.com/[StartPage] (in some cases does not work)
+* https://duckduckgo.com/[DuckDuckGo]
+* https://www.ecosia.org/[Ecosia]
