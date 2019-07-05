@@ -7,6 +7,7 @@
 // @namespace Violentmonkey Scripts
 // @match *://www.google.com/search*
 // @match *://www.startpage.com/do/search*
+// @match *://duckduckgo.com/*
 // @grant GM_xmlhttpRequest
 // ==/UserScript==
 
@@ -20,10 +21,15 @@ const searchEngineConfigs = {
     searchInputSelector: 'input[name=q]',
     searchResultsSelector: '#center_col'
   },
+  // StartPage changes its URL and website structure, so the script does not work in all cases
   'www.startpage.com': {
     searchInputSelector: '#q',
     searchResultsSelector: 'div.mainline-results'
-  }
+  },
+  'duckduckgo.com': {
+    searchInputSelector: 'input[name=q]',
+    searchResultsSelector: '#links.results'
+  },
 }
 const searchEngine = searchEngineConfigs[document.domain];
 
