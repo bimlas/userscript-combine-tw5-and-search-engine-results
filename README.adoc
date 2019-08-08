@@ -31,6 +31,6 @@ image::https://i.imgur.com/D7tZA8C.gif[screencast]
 == Supported search engines
 
 * https://www.google.com/[Google]
-* https://www.startpage.com/[StartPage] (in some cases does not work)
+* https://www.startpage.com/[StartPage]
 * https://duckduckgo.com/[DuckDuckGo]
 * https://www.ecosia.org/[Ecosia]

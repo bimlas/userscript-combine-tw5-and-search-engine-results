@@ -8,7 +8,7 @@
 // @icon https://tiddlywiki.com/favicon.ico
 // @namespace Violentmonkey Scripts
 // @match *://www.google.com/search*
-// @match *://www.startpage.com/do/search*
+// @match *://www.startpage.com/*
 // @match *://duckduckgo.com/*
 // @match *://www.ecosia.org/search*
 // @grant GM_xmlhttpRequest
