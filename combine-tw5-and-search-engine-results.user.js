@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name TiddlyWiki5: Combine TW5 and search engine results
 // @description Combine TiddlyWiki and your preferred search engine to find your own answers more easily
-// @version 0.3.0
+// @version 0.3.1
 // @author bimlas
 // @supportURL https://github.com/bimlas/userscript-combine-tw5-and-search-engine-results
 // @downloadURL https://gitlab.com/bimlas/userscript-combine-tw5-and-search-engine-results/raw/master/combine-tw5-and-search-engine-results.user.js
