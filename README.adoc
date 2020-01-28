@@ -5,7 +5,8 @@ answer, you wanted to make a note of it, did you realize that you already had
 the answer in your https://tiddlywiki.com/[TiddlyWiki]? To avoid these
 situations by *integrating TiddlyWiki search results to Google* , use this
 userscript with TiddlyWiki on Node (*after
-https://github.com/Jermolene/TiddlyWiki5/issues/4054[this issue] solved*).
+https://github.com/Jermolene/TiddlyWiki5/pull/4373[this pull request] getting
+merged*).
 
 Because the script searches in multiple TiddlyWikis at once, it can also be
 used to *search in all your wikis*.
