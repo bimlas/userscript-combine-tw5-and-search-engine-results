@@ -14,6 +14,9 @@
 // @grant GM_xmlhttpRequest
 // ==/UserScript==
 
+// READ THE DOCUMENTATION BEFORE TRYING TO USE THE SCRIPT!
+// https://github.com/bimlas/userscript-combine-tw5-and-search-engine-results
+
 const wikis = [
   'http://localhost:8080',
 ];
@@ -113,7 +116,7 @@ const query = document.querySelector(searchEngine.searchInputSelector).value;
 const urlEncodedQuery = encodeURIComponent(buildWikiFilter(query));
 let searchResults = '';
 wikis.forEach(wiki => {
-  const url = `${wiki}/recipes/default/tiddlers.json:${urlEncodedQuery}`;
+  const url = `${wiki}/recipes/default/tiddlers.json?filter=${urlEncodedQuery}`;
   Promise.all([
     fetchJSON(wiki, url),
     getWikiTitle(wiki)
