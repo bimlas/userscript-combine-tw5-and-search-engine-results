@@ -9,8 +9,7 @@ userscript with TiddlyWiki (at least 5.1.22 version) on Node.js.
 Because the script searches in multiple TiddlyWikis at once, it can also be
 used to *search in all your wikis*.
 
-* https://gitlab.com/bimlas/userscript-combine-tw5-and-search-engine-results (official repository)
-* https://github.com/bimlas/userscript-combine-tw5-and-search-engine-results (mirror, please star if you like it)
+* https://github.com/bimlas/userscript-combine-tw5-and-search-engine-results (please star if you like it)
 
 == How to install?
 
@@ -20,7 +19,7 @@ used to *search in all your wikis*.
   (https://violentmonkey.github.io/[Violentmonkey],
   https://www.tampermonkey.net/[Tampermonkey]) to your browser
 * Add this script to it:
-  https://gitlab.com/bimlas/userscript-combine-tw5-and-search-engine-results/raw/master/combine-tw5-and-search-engine-results.user.js
+  https://github.com/bimlas/userscript-combine-tw5-and-search-engine-results/raw/master/combine-tw5-and-search-engine-results.user.js
 * Set up `wikis` in the script (don't forget to save the changes)
 * Start your Node based TiddlyWikis
 * *Enable particular filters in each of them!* See
